@@ -23,3 +23,32 @@ options:
   --ignore-header-row   Ignore the 0th row of both CSV input files.
 
 ```
+
+## Example
+
+```
+$ cat exampleA.csv 
+Alice,Wonderland,12
+Bob,Builder,34
+Charlie,Chaplin,56
+John,Doe,78
+```
+
+```
+$ cat exampleB.csv 
+Bob,Bauer,12
+Charlie,Chaplin,34
+```
+
+```
+$ python3 csv_set_diff.py exampleA.csv exampleB.csv
+Alice,Wonderland,12
+John,Doe,78
+```
+
+```
+$ python3 csv_set_diff.py exampleA.csv exampleB.csv 1
+Alice,Wonderland,12
+Bob,Builder,34
+John,Doe,78
+```
