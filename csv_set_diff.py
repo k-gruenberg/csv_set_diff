@@ -44,6 +44,8 @@ def cmp_csvs(csv1_path: str,
     set_difference = set1.difference(set2)
 
     with open(csv1_path, 'r') as csv1:
+        if ignore_header_row:
+            next(csv1)
         for line in csv1:
             if line.split(",")[primary_key_col_idx] in set_difference:
                 print(line, end="")  # line already contains a line break!
